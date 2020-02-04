@@ -1,3 +1,6 @@
 {{title}}
 <hr>
-<app-city-child [example]="inputTitle"></app-city-child>
+<app-city-child [example]="inputTitle"
+                notify()="onNotify()"
+          ></app-city-child>
+

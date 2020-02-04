@@ -1,12 +1,14 @@
 
 <h5>List of cities</h5>
 
-<ul>
-    <li *ngFor="let city of cities; let idx = index">
-    <b>{{ idx + 1 + "." }}</b>
-{{ city.name }}
-</li>
-</ul>
+
+    <div *ngFor="let city of citiesList">
+        <span>{{ city.id }}</span>
+        <span>{{ city.name }}</span>
+    </div>
+  
+
+
 
 
 
@@ -19,7 +21,7 @@
 <hr>
 <h3>Chat</h3>
 <textarea>{{ values }}</textarea> <br>
-<input type="text" (keyup.enter)="onMessage($event)">
+<input type="text" (keyup.enter)=message($event)>
 
 <hr>
 
