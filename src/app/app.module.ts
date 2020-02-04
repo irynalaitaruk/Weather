@@ -6,17 +6,23 @@ import { AppComponent } from './app.component';
 import { TopBarComponent } from './top-bar/top-bar.component';
 import { MainComponent } from './main/main.component';
 import { CitiesComponent } from './cities/cities.component';
+import { FormsModule } from '@angular/forms';
+import { WeatherComponent } from './weather/weather.component';
+import { CityChildComponent } from './city-child/city-child.component';
 
 @NgModule({
   declarations: [
     AppComponent,
     TopBarComponent,
     MainComponent,
-    CitiesComponent
+    CitiesComponent,
+    WeatherComponent,
+    CityChildComponent
   ],
   imports: [
     BrowserModule,
-    AppRoutingModule
+    AppRoutingModule,
+    FormsModule
   ],
   providers: [],
   bootstrap: [AppComponent]

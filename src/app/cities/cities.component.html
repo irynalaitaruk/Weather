@@ -1,3 +1,25 @@
+
+<h5>List of cities</h5>
+
 <ul>
-    <li *ngFor="let city of cities">{{ city.cityName }}</li>
+    <li *ngFor="let city of cities; let idx = index">
+    <b>{{ idx + 1 + "." }}</b>
+{{ city.name }}
+</li>
 </ul>
+
+
+
+
+<hr>
+<h3>Paragraph bindings</h3>
+<input type="text" [(ngModel)] = "myText">
+{{ myText }}
+
+<hr>
+<h3>Chat</h3>
+<textarea>{{ values }}</textarea> <br>
+<input type="text" (keyup.enter)="onMessage($event)">
+
+<hr>
+

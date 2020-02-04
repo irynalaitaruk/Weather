@@ -2,7 +2,7 @@ import { Component, OnInit } from '@angular/core';
 
 interface City {
   id: number;
-  cityName: string;
+  name: string
 }
 
 @Component({
@@ -12,28 +12,40 @@ interface City {
 })
 export class CitiesComponent implements OnInit {
 
+myText = '';
+values = '';
+
 cities: City[] = [
  {
    id: 1,
-   cityName: 'Kyiv'
+   name: 'Kyiv'
  },
   {
    id: 2,
-   cityName: 'Lviv'
+   name: 'Lviv'
  },
   {
    id: 3,
-   cityName: 'Rivne'
+   name: 'Rivne'
  },
   {
    id: 4,
-   cityName: 'Kharkiv'
+   name: 'Kharkiv'
  }
 ]
+
+
 
   constructor() { }
 
   ngOnInit() {
   }
+
+
+onMessage(event: Event): void {
+   this.values = (<HTMLInputElement>event.target).value
+   
+}
+
 
 }
