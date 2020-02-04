@@ -7,7 +7,7 @@ import { Component, OnInit, Input, Output, EventEmitter } from '@angular/core';
 })
 export class CityChildComponent implements OnInit {
 @Input() example: any[];
-@Output() notify = new EventEmitter;
+@Output() notify = new EventEmitter();
 
   constructor() { }
 

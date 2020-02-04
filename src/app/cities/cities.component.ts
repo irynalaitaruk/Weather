@@ -2,7 +2,10 @@ import { Component, OnInit } from '@angular/core';
 import { CitiesService } from '../cities.service';
 import { Response } from '@angular/http';
 
-
+interface City {
+    id: number;
+    name: string;
+}
 
 @Component({
   selector: 'app-cities',
@@ -13,12 +16,23 @@ export class CitiesComponent implements OnInit {
 
 myText = '';
 values = '';
-citiesList;
+
+cities: City[] = [
+ {
+    id: 1,
+    name: 'Kyiv'
+  },
+     {
+    id: 2,
+    name: 'Lviv'
+  }
+               ];
 
 constructor(private citiesService: CitiesService) { }
 
   ngOnInit() {
-  this.citiesList = this.citiesService.getCitiesList();
+  
+  /*this.citiesList = this.citiesService.getCitiesList();*/
   
  
   }

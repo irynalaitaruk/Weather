@@ -10,7 +10,7 @@ export class WeatherComponent implements OnInit {
 
 title = 'Weather works';
 inputTitle: any[] = [1, 2, 'test'];
-outputText = '';
+
 
   constructor() { }
 
@@ -18,7 +18,8 @@ outputText = '';
   }
   
   onNotify(): void {
-    this.outputText = 'Output works!';
+   alert('Output works!');
+ 
   }
 
 }

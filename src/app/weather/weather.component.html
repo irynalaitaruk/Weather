@@ -1,6 +1,6 @@
 {{title}}
 <hr>
 <app-city-child [example]="inputTitle"
-                notify()="onNotify()"
-          ></app-city-child>
+                (notify)="onNotify()">
+          </app-city-child>
 

@@ -2,8 +2,8 @@
 <h5>List of cities</h5>
 
 
-    <div *ngFor="let city of citiesList">
-        <span>{{ city.id }}</span>
+    <div *ngFor="let city of cities; let idx = index">
+        <span>{{ idx + 1 + ". " }}</span>
         <span>{{ city.name }}</span>
     </div>
   
