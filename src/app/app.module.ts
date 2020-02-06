@@ -3,6 +3,7 @@ import { NgModule } from '@angular/core';
 import { FormsModule } from '@angular/forms';
 import { HttpModule } from '@angular/http';
 import { CitiesService } from './cities.service';
+import { ReactiveFormsModule } from '@angular/forms';
 
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
@@ -11,6 +12,8 @@ import { MainComponent } from './main/main.component';
 import { CitiesComponent } from './cities/cities.component';
 import { WeatherComponent } from './weather/weather.component';
 import { CityChildComponent } from './city-child/city-child.component';
+import { FormsComponent } from './forms/forms.component';
+import { MainListComponent } from './main-list/main-list.component';
 
 @NgModule({
   declarations: [
@@ -19,13 +22,16 @@ import { CityChildComponent } from './city-child/city-child.component';
     MainComponent,
     CitiesComponent,
     WeatherComponent,
-    CityChildComponent
+    CityChildComponent,
+    FormsComponent,
+    MainListComponent
   ],
   imports: [
     BrowserModule,
     AppRoutingModule,
     FormsModule,
-    HttpModule
+    HttpModule,
+    ReactiveFormsModule
   ],
   providers: [CitiesService],
   bootstrap: [AppComponent]

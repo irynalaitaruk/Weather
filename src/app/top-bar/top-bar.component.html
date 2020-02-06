@@ -2,10 +2,10 @@
    <nav class="navbar navbar-default">
    <div class="container-fluid">
      <ul class="nav navbar-header">
-        <li [routerLink]="['/']">HOME</li>
-        <li [routerLink]="['/weather']">WEATHER</li>
-        <li [routerLink]="['/cities']">CITIES</li>
-        <li>ABOUT US</li>
+         <li [routerLink]="['/']" routerLinkActive = "active" [routerLinkActiveOptions]="{exact: true}"><a>HOME</a></li>
+         <li [routerLink]="['/weather']" routerLinkActive = "active"><a>WEATHER</a></li>
+         <li [routerLink]="['/cities']" routerLinkActive = "active"><a>CITIES</a></li>
+         <li [routerLink]="['/forms']" routerLinkActive = "active"><a>ABOUT US</a></li>
       </ul>
      </div>
 </nav>

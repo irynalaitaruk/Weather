@@ -7,9 +7,29 @@ import { Component, OnInit } from '@angular/core';
 })
 export class MainComponent implements OnInit {
  title = 'Home page works!';
+
+
+
+users: Object[] = [
+  {
+    name: 'John',
+    hide: 'hideElement'
+  },
+  {
+    name: 'Tom',
+    hide: 'hideElement'
+  },
+  {
+    name: 'Bob',
+    hide: 'hideElement'
+  }
+];
+
   constructor() { }
 
   ngOnInit() {
   }
+
+ 
 
 }

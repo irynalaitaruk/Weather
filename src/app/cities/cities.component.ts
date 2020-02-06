@@ -25,8 +25,16 @@ cities: City[] = [
      {
     id: 2,
     name: 'Lviv'
+  },
+  {
+    id: 3,
+    name: 'Kharkiv'
+  },
+  {
+    id: 4,
+    name: 'Rivne'
   }
-               ];
+];
 
 constructor(private citiesService: CitiesService) { }
 
