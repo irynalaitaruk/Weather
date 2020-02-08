@@ -8,10 +8,5 @@ export class CitiesService {
 
   constructor(private http: Http) { }
   
- /*
- getCitiesList() {
-    return this.http.get('/assets/cities.json');
-  }
-  */
  
 }

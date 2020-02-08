@@ -11,7 +11,6 @@ import { TopBarComponent } from './top-bar/top-bar.component';
 import { MainComponent } from './main/main.component';
 import { CitiesComponent } from './cities/cities.component';
 import { WeatherComponent } from './weather/weather.component';
-import { CityChildComponent } from './city-child/city-child.component';
 import { FormsComponent } from './forms/forms.component';
 import { MainListComponent } from './main-list/main-list.component';
 import { FormcreateComponent } from './formcreate/formcreate.component';
@@ -23,7 +22,6 @@ import { FormcreateComponent } from './formcreate/formcreate.component';
     MainComponent,
     CitiesComponent,
     WeatherComponent,
-    CityChildComponent,
     FormsComponent,
     MainListComponent,
     FormcreateComponent
