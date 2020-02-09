@@ -8,5 +8,8 @@ export class CitiesService {
 
   constructor(private http: Http) { }
   
- 
+  getCity(){
+    return this.this.http.get('api.openweathermap.org/data/2.5/weather?q=London');
+  }
+ this
 }

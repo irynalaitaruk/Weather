@@ -14,6 +14,7 @@ import { WeatherComponent } from './weather/weather.component';
 import { FormsComponent } from './forms/forms.component';
 import { MainListComponent } from './main-list/main-list.component';
 import { FormcreateComponent } from './formcreate/formcreate.component';
+import { CityItemComponent } from './city-item/city-item.component';
 
 @NgModule({
   declarations: [
@@ -24,7 +25,8 @@ import { FormcreateComponent } from './formcreate/formcreate.component';
     WeatherComponent,
     FormsComponent,
     MainListComponent,
-    FormcreateComponent
+    FormcreateComponent,
+    CityItemComponent
   ],
   imports: [
     BrowserModule,

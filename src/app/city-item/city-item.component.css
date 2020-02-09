@@ -1,0 +1,16 @@
+article{
+    border: 2px solid brown;
+    border-radius: 8px;
+    height: 60px;
+    padding: 10px;
+}
+.col1{
+    display: inline-block;
+    width: 40%;
+}
+.col2{
+    display: inline-block;
+    width: 50%;
+    vertical-align: top;
+    text-align: right;
+}
