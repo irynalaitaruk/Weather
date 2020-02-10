@@ -15,6 +15,7 @@ import { FormsComponent } from './forms/forms.component';
 import { MainListComponent } from './main-list/main-list.component';
 import { FormcreateComponent } from './formcreate/formcreate.component';
 import { CityItemComponent } from './city-item/city-item.component';
+import { CitySearchComponent } from './city-search/city-search.component';
 
 @NgModule({
   declarations: [
@@ -26,7 +27,8 @@ import { CityItemComponent } from './city-item/city-item.component';
     FormsComponent,
     MainListComponent,
     FormcreateComponent,
-    CityItemComponent
+    CityItemComponent,
+    CitySearchComponent
   ],
   imports: [
     BrowserModule,
