@@ -1,9 +1,9 @@
-<section>
-    <form>
-        <input type="text" placeholder="Test">
-   
-    <button type="button">&#8451;</button>
+<div>
+    <form [formGroup]="form" (ngSubmit)="onSubmit(form)">
+        <input formControlName="name" type="text" value="cityName" required>
+  
+        <button type="button">&#8451;</button>
         <button type="button">&#8457;</button>
         <button type="submit">Add</button>
     </form>
-</section>
+</div>

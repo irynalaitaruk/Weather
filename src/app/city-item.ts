@@ -1,5 +1,5 @@
-export interface CityItem {
-  cityName: string;
-  icon: any;
-  temperature: number;
+export class CityItem {
+  constructor(public cityName: string, public  icon: any, public temperature: number) {}
+  
+
 }

@@ -1,5 +1,5 @@
 
-<form [formGroup]="myForm" (ngSubmit)="onSubmit"()>
+<form [formGroup]="myForm" (ngSubmit)="onSubmit(myForm)">
  <input formControlName="login">
  <input formControlName="pass">
     <button type="submit">Submit</button>
