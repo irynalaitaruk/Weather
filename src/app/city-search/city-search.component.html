@@ -1,9 +1,11 @@
 <div>
     <form [formGroup]="form" (ngSubmit)="onSubmit(form)">
-        <input formControlName="name" type="text" value="cityName" required>
-  
-        <button type="button">&#8451;</button>
-        <button type="button">&#8457;</button>
+        <input formControlName="name" type="text" value="city" required>
+        <button type="button" (click)="onCelcius()">&#8451;</button>
+        <button type="button" (click)= "onFahrenheit()">&#8457;</button>
         <button type="submit">Add</button>
     </form>
+    <p *ngIf="isHidden" >{{wrongCity}}</p>
+ 
+  
 </div>

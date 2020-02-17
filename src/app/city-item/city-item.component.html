@@ -3,11 +3,12 @@
         <h3>{{ cityItem.cityName }}</h3>
     </div>
     <div class="col2">
-        <span class="icon">{{ cityItem.icon }}</span>
+    
+        <span><img src = "{{cityItem.icon}}"> </span>
         <span class="temperature">{{ cityItem.temperature }}</span>
         <span class="deegreС">&#8451;</span>
         <span class="deegreF">&#8457;</span>
-        <span class="close">X</span>
+        <button class="delete" title="delete city" (click)="onDelete()">X</button>
     </div>
 </article>
 

@@ -1,5 +1,5 @@
 export class CityItem {
-  constructor(public cityName: string, public  icon: any, public temperature: number) {}
+  constructor(public cityName: string, public  icon, public temperature: number) {}
   
 
 }

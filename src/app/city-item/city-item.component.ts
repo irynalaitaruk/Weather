@@ -1,5 +1,6 @@
 import { Component, OnInit, Input } from '@angular/core';
 import { CityItem } from '../city-item';
+import { CitiesService } from '../cities.service';
 
 
 
@@ -13,9 +14,14 @@ import { CityItem } from '../city-item';
 export class CityItemComponent implements OnInit {
 @Input() cityItem: CityItem;
 
-  constructor() { }
+  constructor(private citiesService: CitiesService) { }
 
   ngOnInit() {
+  }
+
+  onDelete(cityItem){
+    console.log('delete work');
+    this.citiesService.deleteCity(cityItem).subscribe();
   }
 
 }
