@@ -6,12 +6,12 @@
     <div class="col2">
     
         <span><img src = "{{cityItem.icon}}"> </span>
-        <span class="deegreC" *ngIf="isHiddenCelsius">{{cityItem.temperature.C}}&deg;C</span>
-        <span class="deegreF" *ngIf="isHiddenFahrenheit">{{cityItem.temperature.F}}&deg;F</span>
+        <router-outlet name="celsius"></router-outlet>
+        <router-outlet name="fahrenheit"></router-outlet>
         
   
        
-        <button class="delete" title="delete city" (click)="onDelete()">X</button>
+        <button class="delete" title="delete city" (click)="onDelete(cityItem)">X</button>
     </div>
 </article>
 

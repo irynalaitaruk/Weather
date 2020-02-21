@@ -4,3 +4,6 @@ input {
 button {
     width: 10%;
 }
+.active {
+    background-color: yellow;
+}

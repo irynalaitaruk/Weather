@@ -19,11 +19,9 @@ export class CitySearchComponent implements OnInit {
 form: FormGroup;
 wrongCity = 'City not found';
 isHidden: boolean = false;
-//isHiddenFahrenheit:boolean = false;
-//isHiddenCelsius:boolean = true;
 hideC: boolean;
 hideF: boolean;
-  
+  //cityItem: CityItem;
     
   
 
@@ -40,8 +38,7 @@ hideF: boolean;
       if(c) this.hideF=false});
     this.citiesService.onClickF.subscribe(c => {
       if(c) this.hideC=false});
-    //this.citiesService.onClickC.subscribe(c => this.hideC = true, this.hideF=false);
-    //this.citiesService.onClickF.subscribe(c => this.hideC = false, this.hideF=true);
+  
   }
 
   public clickCelcius() {
@@ -52,20 +49,22 @@ hideF: boolean;
     this.citiesService.doClickF();
 
   }
-
   onSubmit(form: FormGroup){
      this.citiesService.searchCityData(this.form.value.name)
+   //.distinctUntilChanged((c: CityItem) => c.cityName !== c.cityName)
        .subscribe(data => {
+      
          const cityItem  = new CityItem (data.name,'http://openweathermap.org/img/wn/' + data.weather[0].icon + '.png', {
            
          F: Math.round(((data.main.temp - 273.15) * 9/5) + 32),
-         C: Math.round(data.main.temp-273.15)});
+         C: Math.round(data.main.temp-273.15)})
+        
          this.citiesService.addCityItem(cityItem);
          this.isHidden = false;
          
-         //this.isHiddenCelcius = true;
-         //console.log(data, data.name, data.weather[0].icon);
-       },
+         
+       }
+       ,
        error => { console.log('error');
        this.isHidden = !this.isHidden;
       }

@@ -18,6 +18,8 @@ import { MainListComponent } from './main-list/main-list.component';
 import { FormcreateComponent } from './formcreate/formcreate.component';
 import { CityItemComponent } from './city-item/city-item.component';
 import { CitySearchComponent } from './city-search/city-search.component';
+import { CelsiusComponent } from './celsius/celsius.component';
+import { FahrenheitComponent } from './fahrenheit/fahrenheit.component';
 
 
 @NgModule({
@@ -31,7 +33,9 @@ import { CitySearchComponent } from './city-search/city-search.component';
     MainListComponent,
     FormcreateComponent,
     CityItemComponent,
-    CitySearchComponent
+    CitySearchComponent,
+    CelsiusComponent,
+    FahrenheitComponent
   ],
   imports: [
     BrowserModule,
