@@ -11,11 +11,7 @@ import { CitiesService } from '../cities.service';
 })
 export class CityItemComponent implements OnInit {
 @Input() cityItem: CityItem;
-//test: CityItem[];
-//onNotify(){
- // alert('WORK');
-//}
-//city: CityItem[];
+isHideElem: boolean = true;
 
 isHiddenCelsius: boolean = true;
 isHiddenFahrenheit: boolean = true;
@@ -34,23 +30,23 @@ isHiddenFahrenheit: boolean = true;
       if(this.isHiddenFahrenheit)
       this.isHiddenCelsius = false;
     });
-    //this.citiesService.onClickC.subscribe(c => this.isHiddenFahrenheit = false , this.isHiddenCelsius = true);
-    //this.citiesService.onClickF.subscribe(c => this.isHiddenCelsius = false, this.isHiddenFahrenheit = true);
-    //this.city = this.citiesService.getCityItems();
+   
   }
-  //
-city: CityItem;
-  onDelete(cityItem: CityItem){
-    console.log('delete work');
-    //this.city = this.city.filter(c => c !== cityItem);
-    this.citiesService.deleteCity(cityItem).subscribe();
-  }
-
-
   
 
-
+  onDelete(cityItem: CityItem){ 
+       this.isHideElem = false;
   
+  }
 
 
 }
+
+
+  
+
+
+  
+
+
+

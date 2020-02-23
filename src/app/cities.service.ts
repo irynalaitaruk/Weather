@@ -1,5 +1,5 @@
 import { Injectable, EventEmitter, Output } from '@angular/core';
-import { Http, Response } from '@angular/http';
+import { Http, Response, Headers, RequestOptions, } from '@angular/http';
 import { CITY_ITEMS } from './cities.data';
 import { Observable } from 'rxjs/Observable';
 import 'rxjs/Rx';
@@ -15,19 +15,11 @@ import { tap } from 'rxjs/operators';
 export class CitiesService {
 wrong: boolean = false;
 city: string;
-//test: string;
-
-/*private test: CityItem;
-get test$(){
-  return this.test.asObservable().filter(test => !!test)
-}
-addTest(data:CityItem) {
-  this.test.temperature.C(data);
-}*/
 
 
-
-  constructor(private http: Http) { }
+  constructor(private http: Http) {
+    
+   }
 
 
 
@@ -36,14 +28,12 @@ getCityItems(){
 }
 
 addCityItem(cityItem: CityItem){
-  //this.http.post('http://api.openweathermap.org/data/2.5/weather?q=' + this.city + '&APPID=87897826fbc7d5674803b2dd2d10ce69&units=metric', 'icon, 9');
   CITY_ITEMS.push(cityItem);
 }
 
 
-searchCityData(city): Observable<any>{ 
-let cityUrl = 'http://api.openweathermap.org/data/2.5/weather?q=' + city + '&APPID=87897826fbc7d5674803b2dd2d10ce69';
-return this.http.get(cityUrl)
+searchCityData(city: string): Observable<any>{ 
+return this.http.get('http://api.openweathermap.org/data/2.5/weather?q=' + city + '&APPID=87897826fbc7d5674803b2dd2d10ce69')
 .map((response: Response) => response.json())
 .catch((error) => {
   console.log(error);
@@ -51,23 +41,12 @@ return this.http.get(cityUrl)
 })
 
 }
-/*
-getTemperature(): Observable<any>{ 
-  return this.http.get(this.cityUrl)
-  .map((response: Response) => response.json())
-}*/
 
 
-deleteCity(city): Observable<any>{
-  return this.http.delete('http://api.openweathermap.org/data/2.5/weather?q=' + 'city' + '&APPID=87897826fbc7d5674803b2dd2d10ce69')
- .pipe(
-   tap(_ => this.getCityItems())
- )
-}
 
-onTemperature(){
-  
-}
+headers: Headers;
+options: RequestOptions;
+
 
 
 private hideC: boolean;

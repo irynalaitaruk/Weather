@@ -1,12 +1,17 @@
 <div>
     <form [formGroup]="form" (ngSubmit)="onSubmit(form)">
         <input formControlName="name" type="text" value="city" required>
-        <button type="button" 
+        
+        <button type="button"
         [routerLink]="['/cities', { outlets: { celsius: ['tempC'] } }]" 
         routerLinkActive = "active" 
-        [routerLinkActiveOptions]="{exact: true}">&#8451;</button>
-        <button type="button" [routerLink]="['/cities', { outlets: { fahrenheit: ['tempF'] } }]"
-        routerLinkActive = "active">&#8457;</button>
+        [routerLinkActiveOptions]="{exact: true}"
+        ><a>&#8451;</a></button>
+        
+        <button type="button" 
+        [routerLink]="['/cities', { outlets: { fahrenheit: ['tempF'] } }]"
+        routerLinkActive = "active"><a>&#8457;</a></button>
+        
         <button type="submit">Add</button>
     </form>
     <p *ngIf="isHidden" >{{wrongCity}}</p>

@@ -11,6 +11,7 @@ const routes: Routes = [
   {path: '', component: MainComponent}, 
   {path: 'cities', component: CitiesComponent,
     children: [
+      {path: '', component: CelsiusComponent, outlet: 'celsius'},
       {path: 'tempC', component: CelsiusComponent, outlet: 'celsius'},
       {path: 'tempF', component: FahrenheitComponent, outlet: 'fahrenheit'}
     ]
