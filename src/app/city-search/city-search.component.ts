@@ -1,7 +1,7 @@
 import { Component, OnInit, Input, Output, EventEmitter } from '@angular/core';
 import { CitiesService } from '../cities.service';
 import { CityItem } from '../city-item';
-import {FormGroup, FormBuilder } from '@angular/forms';
+import {FormGroup, FormBuilder, Validators } from '@angular/forms';
 import { CityItemComponent } from '../city-item/city-item.component';
 import { forkJoin, zip } from 'rxjs';
 //import { Route } from '@angular/compiler/src/core';
@@ -21,7 +21,7 @@ export class CitySearchComponent implements OnInit {
 @Input() test: string;
 
 
-searchStr = '';
+first = 'Lviv';
 unit: string;
 form: FormGroup;
 wrongCity = 'City not found';
@@ -29,7 +29,6 @@ isHidden: boolean = false;
 
 public celsius;
 public fahrenheit;
-//temperature: string;
 
   constructor(private citiesService: CitiesService, 
     private builder: FormBuilder,
@@ -40,7 +39,7 @@ public fahrenheit;
 
   ngOnInit() {
     this.form = this.builder.group({
-      name: ''
+      name: ['', Validators.required]
     }); 
 
     
@@ -76,8 +75,8 @@ public fahrenheit;
     */
    
     forkJoin([
-      this.citiesService.searchCityData(this.form.value.name, this.test),
-      this.citiesService.searchCityData(this.form.value.name, this.test)
+      this.citiesService.searchCityData(this.form.value.name, 'metric'),
+      this.citiesService.searchCityData(this.form.value.name, 'imperial')
     ])
     
           .subscribe(data => {
@@ -91,7 +90,7 @@ public fahrenheit;
 
   this.citiesService.addCityItem(this.celsius);
 
-  this.citiesService.addCityItem(this.fahrenheit);
+  //this.citiesService.addCityItem(this.fahrenheit);
 
            
             

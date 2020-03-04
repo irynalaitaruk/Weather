@@ -14,7 +14,7 @@ import { CitySearchComponent } from '../city-search/city-search.component';
 })
 export class CitiesComponent implements OnInit {
 cityItems: CityItem[];
-public temperature: string = 'metric';
+public temperature: string;
 
 
 constructor(private citiesService: CitiesService) { }
@@ -32,7 +32,9 @@ switch(unit)
     
     {
       //this.cityItems.map(({temperature}) => temperature);
+       ;
         this.temperature = unit;
+        console.log(unit)
         this.cityItems[0].temperature = 12;
      break;
     

@@ -4,7 +4,6 @@ import { CITY_ITEMS } from './cities.data';
 import { Observable } from 'rxjs/Observable';
 import 'rxjs/Rx';
 import { CityItem } from './city-item';
-import { forkJoin } from 'rxjs';
 
 
 @Injectable({
@@ -35,6 +34,7 @@ return this.http.get('http://api.openweathermap.org/data/2.5/weather?q=' + city 
   return Observable.throw(error.statusText);
 });
 }
+
 
 
 /*
