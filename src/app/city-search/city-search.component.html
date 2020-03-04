@@ -1,21 +1,16 @@
 <div>
     <form [formGroup]="form" (ngSubmit)="onSubmit(form)">
-        <input formControlName="name" type="text" value="city" required>
+        <input formControlName="name" name="first" [(ngModel)]="first" type="text" value="city" required>
         
-        <button type="button"
-        [routerLink]="['/cities', { outlets: { celsius: ['tempC'] } }]" 
-        routerLinkActive = "active" 
-        [routerLinkActiveOptions]="{exact: true}"
-        ><a>&#8451;</a></button>
+        <button type="button" (click)="onToggleClick('metric')">&#8451;</button>
         
-        <button type="button" 
-        [routerLink]="['/cities', { outlets: { fahrenheit: ['tempF'] } }]"
-        routerLinkActive = "active"><a>&#8457;</a></button>
+        <button type="button"  (click)="onToggleClick('imperial')">&#8457;</button>
         
         <button type="submit">Add</button>
+
+
     </form>
     <p *ngIf="isHidden" >{{wrongCity}}</p>
- 
-  
+{{test}}
 </div>
 

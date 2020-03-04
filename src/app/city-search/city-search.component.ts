@@ -1,8 +1,13 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, Input, Output, EventEmitter } from '@angular/core';
 import { CitiesService } from '../cities.service';
 import { CityItem } from '../city-item';
 import {FormGroup, FormBuilder } from '@angular/forms';
+import { CityItemComponent } from '../city-item/city-item.component';
+import { forkJoin, zip } from 'rxjs';
+//import { Route } from '@angular/compiler/src/core';
 //import { CityItemComponent } from '../city-item/city-item.component';
+//import 'rxjs/Rx';
+//import { map } from 'rxjs/operators';
 
 
 
@@ -12,68 +17,160 @@ import {FormGroup, FormBuilder } from '@angular/forms';
   styleUrls: ['./city-search.component.css']
 })
 export class CitySearchComponent implements OnInit {
- //@ViewChild('child', {static: false}) 
- //private child: CityItemComponent;
- 
+@Output() toggle = new EventEmitter<string>();
+@Input() test: string;
 
+
+searchStr = '';
+unit: string;
 form: FormGroup;
 wrongCity = 'City not found';
 isHidden: boolean = false;
-hideC: boolean;
-hideF: boolean;
-  //cityItem: CityItem;
-    
-  
 
-  constructor(private citiesService: CitiesService, private builder: FormBuilder) {
-    
+public celsius;
+public fahrenheit;
+//temperature: string;
+
+  constructor(private citiesService: CitiesService, 
+    private builder: FormBuilder,
+   ) {
+   
    }
+
 
   ngOnInit() {
     this.form = this.builder.group({
-      name: 'Lviv'
+      name: ''
     }); 
-    //
-    this.citiesService.onClickC.subscribe(c => {
-      if(c) this.hideF=false});
-    this.citiesService.onClickF.subscribe(c => {
-      if(c) this.hideC=false});
-  
+
+    
   }
 
-  public clickCelcius() {
-    this.citiesService.doClickC();
+  onSubmit(form: FormGroup){
+
+    /*console.log(this.test);
+      this.citiesService.searchCityData(this.form.value.name, this.test)
+  
+    
+          .subscribe(data => {
+          
+            this.celsius  = new CityItem (data.name,'http://openweathermap.org/img/wn/' + data.weather[0].icon + '.png',
+          Math.round(data.main.temp) )
+         
+         
+        
+        
+  this.citiesService.addCityItem(this.celsius);
+
+
+
+           
+            
+            
+            this.isHidden = false;
+          },
+          error => { console.log('error');
+          this.isHidden = !this.isHidden;
+         }
+    )
+    */
+   
+    forkJoin([
+      this.citiesService.searchCityData(this.form.value.name, this.test),
+      this.citiesService.searchCityData(this.form.value.name, this.test)
+    ])
+    
+          .subscribe(data => {
+          
+            this.celsius  = new CityItem (data[0].name,'http://openweathermap.org/img/wn/' + data[0].weather[0].icon + '.png',
+          Math.round(data[0].main.temp) )
+         
+         
+          this.fahrenheit  = new CityItem (data[1].name,'http://openweathermap.org/img/wn/' + data[1].weather[0].icon + '.png',
+          Math.round(data[1].main.temp) )
+
+  this.citiesService.addCityItem(this.celsius);
+
+  this.citiesService.addCityItem(this.fahrenheit);
+
+           
+            
+            
+            this.isHidden = false;
+          },
+          error => { console.log('error');
+          this.isHidden = !this.isHidden;
+         }
+    )
+   
+    
+                 
   } 
 
-  public clickFahrenheit(){
-    this.citiesService.doClickF();
 
-  }
-  onSubmit(form: FormGroup){
-     this.citiesService.searchCityData(this.form.value.name)
-   //.distinctUntilChanged((c: CityItem) => c.cityName !== c.cityName)
-       .subscribe(data => {
-      
-         const cityItem  = new CityItem (data.name,'http://openweathermap.org/img/wn/' + data.weather[0].icon + '.png', {
-           
-         F: Math.round(((data.main.temp - 273.15) * 9/5) + 32),
-         C: Math.round(data.main.temp-273.15)})
-        
-         this.citiesService.addCityItem(cityItem);
-         this.isHidden = false;
-         
-         
-       }
-       ,
-       error => { console.log('error');
-       this.isHidden = !this.isHidden;
-      }
-       )
-      
-  }  
-
+  
+ onToggleClick(unit: string) {
+this.toggle.emit(unit);
+ }
  
  
-                                        
 
 }
+
+
+
+
+    /*
+forkJoin(
+  this.citiesService.searchCityData(this.form.value.name),
+  this.citiesService.searchCityData(this.form.value.name)   
+)
+ .subscribe(([res1, res2]) => {
+   const celsius = new CityItem (res1.name,'http://openweathermap.org/img/wn/' + res1.weather[0].icon + '.png',
+   Math.round(res1.main.temp-273.15)
+   )
+
+ 
+    this.citiesService.addCityItem(celsius);
+    console.log(celsius);
+
+  const fahrenheit = new CityItem (res2.name,'http://openweathermap.org/img/wn/' + res2.weather[0].icon + '.png', 
+Math.round((res2.main.temp - 273.15) * 9/5) + 32)
+  
+ 
+    //this.citiesService.addCityItem(fahrenheit);
+   
+    console.log(fahrenheit);
+  // this.unit = Math.round(res1.main.temp-273.15)+ 'C';
+   
+   //console.log(this.unit)
+ }
+    */
+   /*
+   //forkJoin(
+  this.citiesService.searchCityData(this.form.value.name)
+  //this.citiesService.searchCityData(this.form.value.name)   
+//)
+ .subscribe(data => {
+   const celsius = new CityItem (data[0].name,'http://openweathermap.org/img/wn/' + data[0].weather[0].icon + '.png',
+   Math.round(data[0].main.temp)
+   )
+   this.celsius = celsius.temperature;
+    //this.citiesService.addCityItem(celsius);
+    console.log(celsius.temperature);
+
+ 
+  const fahrenheit = new CityItem (data[1].name,'http://openweathermap.org/img/wn/' + data[1].weather[0].icon + '.png', 
+  Math.round(data[1].main.temp)  
+  )
+  this.citiesService.addCityItem(celsius);
+  this.citiesService.addCityItem(fahrenheit);
+  console.log(fahrenheit);
+  this.fahrenheit = fahrenheit.temperature;
+  console.log(fahrenheit.temperature);
+ },
+ error => { console.log('error');
+          this.isHidden = !this.isHidden;
+         }
+
+ ) */ 

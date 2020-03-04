@@ -18,8 +18,7 @@ import { MainListComponent } from './main-list/main-list.component';
 import { FormcreateComponent } from './formcreate/formcreate.component';
 import { CityItemComponent } from './city-item/city-item.component';
 import { CitySearchComponent } from './city-search/city-search.component';
-import { CelsiusComponent } from './celsius/celsius.component';
-import { FahrenheitComponent } from './fahrenheit/fahrenheit.component';
+import { CityFilterPipe } from './city-filter.pipe';
 
 
 @NgModule({
@@ -34,8 +33,7 @@ import { FahrenheitComponent } from './fahrenheit/fahrenheit.component';
     FormcreateComponent,
     CityItemComponent,
     CitySearchComponent,
-    CelsiusComponent,
-    FahrenheitComponent
+    CityFilterPipe
   ],
   imports: [
     BrowserModule,

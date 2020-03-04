@@ -6,12 +6,13 @@
     <div class="col2">
     
         <span><img src = "{{cityItem.icon}}"> </span>
-        <router-outlet name="celsius">{{cityItem.temperature.C}}</router-outlet>
-        <router-outlet name="fahrenheit"></router-outlet>
-        
-  
        
-        <button class="delete" title="delete city" (click)="onDelete(cityItem)">X</button>
+       <span>{{cityItem.temperature}}&#8451; </span>
+   <span> {{cityItem.temperature}}&#8457;</span>
+
+        <button class="delete" title="delete city" (click)="onDelete()">X</button>
+       
     </div>
 </article>
+
 

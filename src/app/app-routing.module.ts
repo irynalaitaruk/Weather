@@ -4,18 +4,10 @@ import { MainComponent } from './main/main.component';
 import { CitiesComponent } from './cities/cities.component';
 import { WeatherComponent } from './weather/weather.component';
 import { FormsComponent } from './forms/forms.component';
-import { CelsiusComponent } from './celsius/celsius.component';
-import { FahrenheitComponent } from './fahrenheit/fahrenheit.component';
 
 const routes: Routes = [
   {path: '', component: MainComponent}, 
-  {path: 'cities', component: CitiesComponent,
-    children: [
-      {path: '', component: CelsiusComponent, outlet: 'celsius'},
-      {path: 'tempC', component: CelsiusComponent, outlet: 'celsius'},
-      {path: 'tempF', component: FahrenheitComponent, outlet: 'fahrenheit'}
-    ]
-},
+  {path: 'cities', component: CitiesComponent},
   {path: 'weather', component: WeatherComponent},
   {path: 'forms', component: FormsComponent},
 
