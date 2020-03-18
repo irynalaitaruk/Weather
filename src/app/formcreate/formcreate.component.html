@@ -1,0 +1,9 @@
+<p>formcreate works!</p>
+<h2>Add form</h2>
+<div class="form-group">
+    <input class="form-control" type="text" #newuser> <br>
+    <button class="btn btn-primary" type="button" (click)="addUser(newuser.value)">Add user</button>
+</div>
+<ul>
+<li *ngFor="let user of users">{{ user.name }}<span>{{user}}</span></li>
+</ul>

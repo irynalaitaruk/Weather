@@ -1,0 +1,9 @@
+li {
+    padding: 40px;
+    font-size: 35px;
+    border: 1px solid green;
+    background-color: antiquewhite;
+}
+.active {
+    background-color: burlywood;
+}

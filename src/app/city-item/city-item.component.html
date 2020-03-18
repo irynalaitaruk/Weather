@@ -1,0 +1,18 @@
+
+<article *ngIf="isHideElem">
+    <div class="col1">
+        <h3>{{ cityItem.cityName }}</h3>
+    </div>
+    <div class="col2">
+    
+        <span><img src = "{{cityItem.icon}}"> </span>
+       
+       <span>{{cityItem.temperature}}&#8451; </span>
+   <span> {{cityItem.temperature}}&#8457;</span>
+
+        <button class="delete" title="delete city" (click)="onDelete()">X</button>
+       
+    </div>
+</article>
+
+

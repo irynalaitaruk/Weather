@@ -1,0 +1,8 @@
+<app-city-search (toggle)="onTemperature($event)"  [test]="temperature"></app-city-search>
+
+<section>
+    <app-city-item *ngFor="let city of cityItems | cityFilter:searchStr" 
+    [cityItem]="city">
+  
+</app-city-item>
+</section>

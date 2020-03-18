@@ -1,0 +1,9 @@
+{{ title }}
+
+
+
+<hr>
+<h2>Input decorator</h2>
+<app-main-list *ngFor="let user of users; let idx = index" [someuser]="user"></app-main-list>
+<hr>
+<app-formcreate (userCreated)="addUser($event)"></app-formcreate>

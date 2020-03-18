@@ -1,0 +1,7 @@
+
+
+<div>
+    <span>{{ someuser.name }}</span>
+    <p *ngIf="hideElem">{{ someuser.hide }}</p>
+</div>
+<button class="btn btn-primary" (click)="hideElem = !hideElem">Click me</button>

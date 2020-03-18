@@ -1,0 +1,17 @@
+<div>
+    <form [formGroup]="form" (ngSubmit)="onSubmit(form)">
+        <input formControlName="name" name="first" [(ngModel)]="first" type="text" value="city" required>
+        
+        <button type="button" (click)="onToggleClick('metric')">&#8451;</button>
+        
+        <button type="button"  (click)="onToggleClick('imperial')">&#8457;</button>
+        
+        <button type="submit" [disabled]="form.invalid">Add</button>
+
+
+    </form>
+    <h5 *ngIf="form.get('name').invalid && form.get('name').touched">Введіть місто</h5>
+    <p *ngIf="isHidden" >{{wrongCity}}</p>
+{{test}}
+</div>
+

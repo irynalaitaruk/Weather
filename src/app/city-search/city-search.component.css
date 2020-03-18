@@ -1,0 +1,10 @@
+input {
+    width: 70%;
+}
+button {
+    width: 10%;
+    background-color: yellowgreen;
+}
+.active {
+    background-color: yellow;
+}
